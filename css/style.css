@@ -254,7 +254,7 @@ main .land h1 {
   padding-block: var(--section-padding);
 }
 .services .service-box {
-  height: 70vh;
+  height: 50vh;
   padding-block: 3rem;
 }
 .services .service-box p:first-of-type {
