@@ -66,13 +66,13 @@ span {
   --hero-title-laptop: 20rem;
   --hero-title-phone: 4.5rem;
   --section-title-laptop: 7rem;
-  --section-title-phone: 5rem;
+  --section-title-phone: 4rem;
   --box-title-laptop: 3rem;
   --box-title-phone: 2rem;
   --box-text-laptop: 3rem;
   --box-text-phone: 1.6rem;
   --box-link-laptop: 5rem;
-  --box-link-phone: 2rem;
+  --box-link-phone: 1.6rem;
   --section-padding: 6rem;
   --title-padding: 5rem;
   --large-radius: 1rem;
@@ -88,16 +88,18 @@ body {
   /* Forcing some browser font changing */
   font-family: "IBM Plex Mono", monospace !important;
   position: relative;
-  /* overflow-y: auto; */
+  padding-block: 1rem;
 }
 
 .container {
-  padding-inline: 5rem;
+  padding-inline: 1rem;
   margin-inline: auto;
+  /* margin-block: 2rem; */
+  height: calc(100vh - 2rem);
 }
 @media (max-width: 767px) {
   .container {
-    padding-inline: 1.5rem;
+    padding-inline: 1rem;
   }
 }
 
@@ -124,12 +126,12 @@ section {
 }
 h1 {
   color: var(--m4);
-  font-size: clamp(var(--hero-title-phone), 8vw, var(--hero-title-laptop));
+  font-size: clamp(var(--hero-title-phone), 11vw, var(--hero-title-laptop));
   font-weight: 700;
   line-height: 0.9;
 }
 h2 {
-  color: var(--m3);
+  color: var(--m4);
   font-size: clamp(
     var(--section-title-phone),
     4vw,
@@ -165,7 +167,7 @@ button {
 }
 .page-content .container {
   display: flex;
-  gap: 5rem;
+  gap: 1rem;
   width: 100%;
 }
 @media (max-width: 767px) {
@@ -179,12 +181,14 @@ button {
 main {
   flex: 1;
   flex-basis: 70%;
-  height: 100vh;
+  /* height: calc(100vh - 2rem); */
   overflow-y: auto;
+  border: 1px solid white;
+  padding-inline: 1rem;
 }
 @media (max-width: 767px) {
   main {
-    padding: 0;
+    /* padding: 0; */
   }
 }
 
@@ -196,34 +200,47 @@ main {
 nav {
   display: flex;
   flex-direction: column;
-  justify-content: initial;
-  /* overflow: hidden; */
+  justify-content: flex-start;
   padding-block: 2rem 1rem;
-  height: 100%;
-  /* width: 100%; */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   background-color: black;
+  border: 1px solid var(--font);
+  padding: 2rem;
 }
 @media (max-width: 767px) {
   nav {
     flex-direction: row;
+    gap: 5rem;
+    height: auto;
+  }
+}
+@media (max-width: 500px) {
+  nav {
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 nav .image {
   max-width: 50rem;
   align-self: flex-start;
-  flex-basis: 50%;
 }
 @media (max-width: 767px) {
   nav .image {
+    flex-basis: 30%;
+    height: fit-content;
+  }
+}
+@media (max-width: 500px) {
+  nav .image {
+    flex-basis: 50%;
   }
 }
 nav .image img {
   width: 100%;
+  border: 1px solid white;
+  padding: 1rem;
 }
 nav ul {
   display: flex;
@@ -233,10 +250,18 @@ nav ul {
 nav ul li {
 }
 nav ul li a {
-  text-decoration: underline 5px;
+  color: var(--font);
   font-size: clamp(var(--box-link-phone), 4vw, var(--box-link-laptop));
   font-weight: 100;
-  color: var(--m3);
+  text-decoration: underline 5px var(--m4);
+  transition: var(--tran-3);
+  -webkit-transition: var(--tran-3);
+  -moz-transition: var(--tran-3);
+  -ms-transition: var(--tran-3);
+  -o-transition: var(--tran-3);
+}
+nav ul li:hover a {
+  color: var(--m4);
 }
 
 /* End Navigation */
@@ -274,7 +299,7 @@ nav ul li a {
 }
 .services .service-box {
   height: 50vh;
-  padding-block: 3rem;
+  padding-block: 0 3rem;
 }
 @media (max-width: 1399px) {
   .services .service-box {
@@ -315,6 +340,14 @@ nav ul li a {
   border: 1px solid white;
   padding: 0.5rem 3rem;
   font-size: clamp(var(--box-text-phone), 3vw, var(--box-text-laptop));
+  transition: var(--tran-3);
+  -webkit-transition: var(--tran-3);
+  -moz-transition: var(--tran-3);
+  -ms-transition: var(--tran-3);
+  -o-transition: var(--tran-3);
+}
+.services button:hover {
+  color: var(--m3);
 }
 
 /* End Services */
@@ -331,8 +364,21 @@ nav ul li a {
   flex-wrap: wrap;
   gap: 2rem;
 }
+.works a {
+  flex-basis: 20%;
+}
+@media (max-width: 991px) {
+  .works a {
+    flex-basis: calc(90% / 3);
+  }
+}
+@media (max-width: 767px) {
+  .works a {
+    flex-basis: calc(90% / 2);
+  }
+}
 .works img {
-  width: 20rem;
+  max-width: 100%;
 }
 
 /* End Workspace */
